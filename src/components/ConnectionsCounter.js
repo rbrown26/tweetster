@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ConnectionsCounter = ( { followers, following }) => {
   return (
-    <table class="counter">
+    <table className="counter">
       <tbody>
         <tr>
           <td>Following:</td>
@@ -19,7 +19,7 @@ const ConnectionsCounter = ( { followers, following }) => {
 }
 
 ConnectionsCounter.propTypes = {
-  followers: PropTypes.string,
-  following: PropTypes.string
+  followers: PropTypes.number,
+  following: PropTypes.number
 }
 export default ConnectionsCounter;
