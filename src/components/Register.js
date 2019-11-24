@@ -50,11 +50,11 @@ class Register extends Component {
   render() {
     const { username, password, tacCheck, submitted, loading, error } = this.state;
     return (
-      <div class="App">
+      <div className="App">
         <Header />
         <MainNav navClass="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"/>
         <div className="container main">
-          <h1 class="Register">Register to get started!</h1>
+          <h1 className="Register">Register to get started!</h1>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <div className="row">
