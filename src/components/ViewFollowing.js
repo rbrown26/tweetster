@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import '../App.css';
-import Header from './Header';
+import Header from './Header.js';
 import MainNav from './MainNav';
 import SubNav from './SubNav';
-import User from './User';
+import User from './User';.
 
-class Search extends Component {
-
+class ViewFollowing extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,8 +18,8 @@ class Search extends Component {
       console.log(user);
       var userId = JSON.parse(user).id;
 
-      fetch('https://polar-everglades-29406.herokuapp.com/users/' + userId)
-      //fetch('http://localhost:8080/users/' + userId)
+      fetch('https://polar-everglades-29406.herokuapp.com/connection/' + userId + '/following')
+      //fetch('http://localhost:8080/connection/' + userId + '/following')
         .then(response => response.json())
         .then((data) => {
           this.setState({
@@ -40,15 +38,16 @@ class Search extends Component {
         <Header />
         <MainNav />
         <SubNav />
+
         <div className="main">
-            {this.state.users.map( (user, index) =>
-              <User
-                username={user.username}
-                id={user.id}
-                key={user.id.toString()}
-                status='findContacts'
-              />
-            )}
+          {this.state.users.map( (user, index) =>
+            <User
+              username={user.username}
+              id={user.id}
+              key={user.id.toString()}
+              status='viewFollowing'
+            />
+          )}
         </div>
         <br/>
         <br/>
@@ -59,4 +58,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default ViewFollowing;

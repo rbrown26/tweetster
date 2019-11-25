@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import Header from './Header';
 import MainNav from './MainNav';
 import {userService} from "../services/user.service";
@@ -26,7 +25,7 @@ class Login extends Component {
     e.preventDefault();
     console.log('in handleSubmit');
     this.setState({ submitted: true });
-    const { username, password, returnUrl } = this.state;
+    const { username, password } = this.state;
     console.log('updated state');
     console.log('username is ' + username);
     console.log('password is ' + password);

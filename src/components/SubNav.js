@@ -7,13 +7,9 @@ const SubNav = () => {
   let viewFollowing = "";
 
   if (user != null) {
-    search = <a className="nav-link" isVisible="true" href="/search">Find Contacts</a>;
-    viewFollowers = <a className="nav-link" isVisible="true" href="/viewFollowers">View Followers</a>
-    viewFollowing = <a className="nav-link" isVisible="true" href="/viewFollowing">View Following</a>
-  } else {
-    search = <a className="nav-link" isVisible="false" href="/search">Find Contacts</a>;
-    viewFollowers = <a className="nav-link" isVisible="false" href="/viewFollowers">View Followers</a>
-    viewFollowing = <a className="nav-link" isVisible="false" href="/viewFollowing">View Following</a>
+    search = <a className="nav-link" href="/search">Find Contacts</a>;
+    viewFollowers = <a className="nav-link" href="/viewFollowers">View Followers</a>
+    viewFollowing = <a className="nav-link" href="/viewFollowing">View Following</a>
   }
 
   return (

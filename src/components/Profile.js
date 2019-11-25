@@ -6,7 +6,6 @@ import MainNav from './MainNav';
 import AddTweetForm from './AddTweetForm';
 import MyTweets from './MyTweets';
 import TweetsterFeed from './TweetsterFeed';
-import {tweetService} from "../services/tweet.service";
 import SubNav from './SubNav';
 
 class Profile extends Component {
@@ -38,22 +37,6 @@ class Profile extends Component {
         })
       });
     }
-  }
-
-  handleAddPlayer = (name) => {
-    this.setState( prevState => {
-      return {
-        players: [
-          ...this.state.players,
-          {
-            name,
-            score: 0,
-            isHighScore: false,
-            id: this.prevPlayerId += 1
-          }
-        ]
-      }
-    });
   }
 
   render() {

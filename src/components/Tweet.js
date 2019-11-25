@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 class Tweet extends Component {
 
   static propTypes = {
-    message: PropTypes.string,
-    id: PropTypes.number
+    message: PropTypes.string
   };
 
   render () {
-    const { message, id } = this.props;
+    const { message } = this.props;
     return (
       <div>
          { message }

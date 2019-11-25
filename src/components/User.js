@@ -1,30 +1,54 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
+import {connectionService} from "../services/connection.service";
 
 class User extends PureComponent {
   static propTypes = {
-    addContact: PropTypes.func,
     username: PropTypes.string.isRequired,
-    id: PropTypes.number,
+    id: PropTypes.string,
+    status: PropTypes.string
   };
 
+  handleAddContact(id) {
+    console.log('in handleAddContact');
+    console.log('id is: ' + id);
+    const user = localStorage.getItem('user');
+    if (user != null) {
+      var userId = JSON.parse(user).id;
+      console.log("userId is: " + userId);
+      connectionService.addContact(id, userId);
+    } else {
+      return;
+    }
+  }
+
   render() {
-    const { username, id, addContact } = this.props;
+    const { username, id, status } = this.props;
+    console.log('id is: ' + id);
+    let addDisabled = true;
+    let deleteDisabled = true;
+    if (status === "viewFollowing") {
+      deleteDisabled = false;
+    } else if (status === "findContacts") {
+      addDisabled = false;
+      deleteDisabled = true;
+    }
     return (
-      <div className="player">
-        <span className="player-name">
-        <td width="80%">
-          { username }
-          </td>
-          <td>
-          <button>Add</button>
-          </td>
-          <td>
-          <button>Remove</button>
-          </td>
-        </span>
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td width="80%">
+              { username }
+            </td>
+            <td>
+              <button disabled={addDisabled} onClick={() => {this.handleAddContact(id)}}>Add</button>
+            </td>
+            <td>
+              <button disabled={deleteDisabled}>Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     );
   }
 }
