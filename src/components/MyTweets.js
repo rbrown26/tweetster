@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Header from './Header';
 import Tweet from './Tweet';
 
 
 class MyTweets extends Component {
-
-  constructor() {
-    super();
-  }
-
   render() {
     const { tweets } = this.props;
     return (
