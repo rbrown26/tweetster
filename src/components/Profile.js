@@ -13,7 +13,6 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      defaultMessage: '',
       myTweets: []
     };
   }
@@ -50,13 +49,11 @@ class Profile extends Component {
           <MyTweets
             tweets={this.state.myTweets}
           />
+          <br/>
+          <br/>
+          <br/>
           <TweetsterFeed />
-
-
-          <ConnectionsCounter
-            following={3}
-            followers={2}
-          />
+          <ConnectionsCounter />
         </div>
       </div>
     );

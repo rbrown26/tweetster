@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header.js';
+import Header from './Header';
 import MainNav from './MainNav';
 import SubNav from './SubNav';
 import User from './User';
 
-class ViewFollowing extends Component {
+class ViewFollowers extends Component {
   constructor() {
     super();
     this.state = {
@@ -18,8 +18,8 @@ class ViewFollowing extends Component {
       console.log(user);
       var userId = JSON.parse(user).id;
 
-      fetch('https://polar-everglades-29406.herokuapp.com/connection/' + userId + '/following')
-      //fetch('http://localhost:8080/connection/' + userId + '/following')
+      fetch('https://polar-everglades-29406.herokuapp.com/connection/' + userId + '/followers')
+      //fetch('http://localhost:8080/connection/' + userId + '/followers')
         .then(response => response.json())
         .then((data) => {
           this.setState({
@@ -45,7 +45,7 @@ class ViewFollowing extends Component {
               username={user.username}
               id={user.id}
               key={user.id.toString()}
-              status='viewFollowing'
+              status='viewFollowers'
             />
           )}
         </div>
@@ -54,4 +54,4 @@ class ViewFollowing extends Component {
   }
 }
 
-export default ViewFollowing;
+export default ViewFollowers;

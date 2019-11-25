@@ -11,8 +11,8 @@ export const connectionService = {
     };
     console.log('built my request options');
 
-    //return fetch(`https://polar-everglades-29406.herokuapp.com/connection/add`, requestOptions)
-    return fetch(`http://localhost:8080/connection/add`, requestOptions)
+    return fetch(`https://polar-everglades-29406.herokuapp.com/connection/add`, requestOptions)
+    //return fetch(`http://localhost:8080/connection/add`, requestOptions)
         .then(handleResponse);
   }
 
