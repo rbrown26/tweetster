@@ -1,5 +1,6 @@
 export const connectionService = {
-    addContact
+    addContact,
+    deleteContact
 };
 
   function addContact(followed, follower) {
@@ -13,6 +14,20 @@ export const connectionService = {
 
     return fetch(`https://polar-everglades-29406.herokuapp.com/connection/add`, requestOptions)
     //return fetch(`http://localhost:8080/connection/add`, requestOptions)
+        .then(handleResponse);
+  }
+
+  function deleteContact(followed, follower) {
+    console.log('in deleteContact');
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ followed, follower })
+    };
+    console.log('built my request options');
+
+    return fetch(`https://polar-everglades-29406.herokuapp.com/connection/delete`, requestOptions)
+    //return fetch(`http://localhost:8080/connection/delete`, requestOptions)
         .then(handleResponse);
   }
 
