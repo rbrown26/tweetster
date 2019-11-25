@@ -11,8 +11,8 @@ export const tweetService = {
     };
     console.log('built my request options');
 
-    return fetch(`https://polar-everglades-29406.herokuapp.com/tweet/add`, requestOptions)
-    //return fetch(`http://localhost:8080/tweet/add`, requestOptions)
+    //return fetch(`https://polar-everglades-29406.herokuapp.com/tweet/add`, requestOptions)
+    return fetch(`http://localhost:8080/tweet/add`, requestOptions)
         .then(handleResponse)
         .then(tweet => {
             if (tweet) {
