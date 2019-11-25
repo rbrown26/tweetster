@@ -5,28 +5,13 @@ import Tweet from './Tweet';
 
 
 class MyTweets extends Component {
-  state = {
-    userTweets: [
-      {
-        message: "This is my first tweet!",
-        id: 1,
-        userId: 1
-      },
-      {
-        message: "This is my second tweet!",
-        id: 2,
-        userId: 1
-      },
-      {
-        message: "This is my third tweet!",
-        id: 3,
-        userId: 1
-      }
-    ]
-  };
 
+  constructor() {
+    super();
+  }
 
   render() {
+    const { tweets } = this.props;
     return (
       <div>
         <div>
@@ -34,7 +19,7 @@ class MyTweets extends Component {
         </div>
         <div>
           {/* User tweets */}
-          {this.state.userTweets.map( (tweet, index) =>
+          {tweets.map( (tweet, index) =>
             <Tweet
               message={tweet.message}
               key={tweet.id}
