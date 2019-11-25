@@ -7,6 +7,7 @@ import AddTweetForm from './AddTweetForm';
 import MyTweets from './MyTweets';
 import TweetsterFeed from './TweetsterFeed';
 import {tweetService} from "../services/tweet.service";
+import SubNav from './SubNav';
 
 class Profile extends Component {
 
@@ -60,6 +61,7 @@ class Profile extends Component {
       <div className="App">
         <Header />
         <MainNav />
+        <SubNav />
         <AddTweetForm />
         <div className="main">
           <MyTweets
