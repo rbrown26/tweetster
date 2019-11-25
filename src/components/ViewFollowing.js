@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header.js';
 import MainNav from './MainNav';
 import SubNav from './SubNav';
-import User from './User';.
+import User from './User';
 
 class ViewFollowing extends Component {
   constructor() {

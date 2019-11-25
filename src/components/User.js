@@ -22,6 +22,17 @@ class User extends PureComponent {
     }
   }
 
+  handleDeleteContact(id) {
+    console.log('in handleDeleteContact');
+    const user = localStorage.getItem('user');
+    if (user != null) {
+      var userId = JSON.parse(user).id;
+      connectionService.deleteContact(id, userId);
+    } else {
+      return;
+    }
+  }
+
   render() {
     const { username, id, status } = this.props;
     console.log('id is: ' + id);
@@ -33,6 +44,7 @@ class User extends PureComponent {
       addDisabled = false;
       deleteDisabled = true;
     }
+    
     return (
       <table>
         <tbody>
@@ -44,7 +56,7 @@ class User extends PureComponent {
               <button disabled={addDisabled} onClick={() => {this.handleAddContact(id)}}>Add</button>
             </td>
             <td>
-              <button disabled={deleteDisabled}>Remove</button>
+              <button disabled={deleteDisabled} onClick={() => {this.handleDeleteContact(id)}}>Remove</button>
             </td>
           </tr>
         </tbody>
