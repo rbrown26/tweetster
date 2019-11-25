@@ -9,6 +9,7 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import Search from './components/Search';
 import ViewFollowing from './components/ViewFollowing';
+import ViewFollowers from './components/ViewFollowers';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/profile" component={ Profile } />
           <Route path="/search" component={ Search } />
           <Route path="/viewFollowing" component={ ViewFollowing } />
+          <Route path="/viewFollowers" component={ ViewFollowers } />
       </BrowserRouter>
     );
   }

@@ -50,10 +50,6 @@ class Search extends Component {
               />
             )}
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <a href="/profile">Return to Profile</a>
       </div>
     );
   }
