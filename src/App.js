@@ -12,6 +12,7 @@ import Header from './components/Header';
 import ConnectionsCounter from './components/ConnectionsCounter';
 import Tweet from './components/Tweet';
 import AddTweetForm from './components/AddTweetForm';
+import Search from './components/Search';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/login" component={ Login } />
           <Route path="/logout" component={ Login } />
           <Route path="/profile" component={ Profile } />
+          <Route path="/search" component={ Search } />
       </BrowserRouter>
     );
   }
