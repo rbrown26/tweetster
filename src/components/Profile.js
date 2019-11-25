@@ -6,24 +6,54 @@ import MainNav from './MainNav';
 import AddTweetForm from './AddTweetForm';
 import MyTweets from './MyTweets';
 import TweetsterFeed from './TweetsterFeed';
+import {tweetService} from "../services/tweet.service";
 
 class Profile extends Component {
-  // Temporary hardcoded state until pulling from database
-  state = {
-    communityTweets: [
-      {
-        message: "Check out this stuff!",
-        id: 1,
-        userId: 2
-      },
-      {
-        message: "Look what I had for lunch!",
-        id: 2,
-        userId: 2
-      }
-    ]
-  };
 
+  constructor() {
+    super();
+    this.state = {
+      defaultMessage: '',
+      myTweets: []
+    };
+  }
+
+  componentDidMount() {
+    const user = localStorage.getItem('user');
+    if (user != null) {
+      console.log(user);
+      var userId = JSON.parse(user).id;
+
+      fetch('https://polar-everglades-29406.herokuapp.com/tweet/' + userId + '/all')
+      //fetch('http://localhost:8080/tweet/' + userId + '/all')
+        .then(response => response.json())
+        .then((data) => {
+          this.setState({
+            myTweets: data.map(tweet => ({
+              message: tweet.message,
+              id: tweet.id,
+              userId: tweet.createdBy
+          }))
+        })
+      });
+    }
+  }
+
+  handleAddPlayer = (name) => {
+    this.setState( prevState => {
+      return {
+        players: [
+          ...this.state.players,
+          {
+            name,
+            score: 0,
+            isHighScore: false,
+            id: this.prevPlayerId += 1
+          }
+        ]
+      }
+    });
+  }
 
   render() {
     return (
@@ -32,7 +62,9 @@ class Profile extends Component {
         <MainNav />
         <AddTweetForm />
         <div className="main">
-          <MyTweets />
+          <MyTweets
+            tweets={this.state.myTweets}
+          />
           <TweetsterFeed />
 
 

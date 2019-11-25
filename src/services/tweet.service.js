@@ -2,7 +2,7 @@ export const tweetService = {
     addTweet
 };
 
-function addTweet(createdBy, message) {
+  function addTweet(createdBy, message) {
     console.log('in addTweet');
     const requestOptions = {
         method: 'POST',
@@ -16,13 +16,12 @@ function addTweet(createdBy, message) {
         .then(handleResponse)
         .then(tweet => {
             if (tweet) {
-                //user.authdata = window.btoa(username + ':' + password);
                 localStorage.setItem('tweet', JSON.stringify(tweet));
             }
 
             return tweet;
         });
-}
+  }
 
 function logout() {
     localStorage.removeItem('user');
