@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import Tweet from './Tweet';
 
-
 class MyTweets extends Component {
   render() {
     const { tweets } = this.props;
