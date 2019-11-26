@@ -13,7 +13,8 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      myTweets: []
+      myTweets: [],
+      feedTweets: []
     };
   }
 
@@ -29,6 +30,19 @@ class Profile extends Component {
         .then((data) => {
           this.setState({
             myTweets: data.map(tweet => ({
+              message: tweet.message,
+              id: tweet.id,
+              userId: tweet.createdBy
+          }))
+        })
+      });
+
+      fetch('https://polar-everglades-29406.herokuapp.com/tweet/' + userId + '/feed')
+      //fetch('http://localhost:8080/tweet/' + userId + '/feed')
+        .then(response => response.json())
+        .then((data) => {
+          this.setState({
+            feedTweets: data.map(tweet => ({
               message: tweet.message,
               id: tweet.id,
               userId: tweet.createdBy
@@ -52,7 +66,9 @@ class Profile extends Component {
           <br/>
           <br/>
           <br/>
-          <TweetsterFeed />
+          <TweetsterFeed
+            tweets={this.state.feedTweets}
+          />
           <ConnectionsCounter />
         </div>
       </div>
